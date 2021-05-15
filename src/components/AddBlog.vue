@@ -26,7 +26,6 @@
         </div>
       </div>
 
-
       <div class="row rowArea">
         <div class="text">博客内容：</div>
         <div class="iptBox">
@@ -42,7 +41,6 @@
       </div>
 
     </div>
-
 
   </div>
 </template>
@@ -70,7 +68,7 @@ export default {
       axios({
         method: 'get',
         params: this.blogObj,
-        url: 'https://ku.qingnian8.com/dataApi/blog/addBlog.php',
+        url: 'https://ku.qingnian8.com/dataApi/blog/addBlog.php'
       }).then(res => {
         console.log(res, '33333')
         if (res.data.code === '200') {
@@ -87,7 +85,7 @@ export default {
     getClassify () {
       axios({
         method: 'GET',
-        url: 'https://ku.qingnian8.com/dataApi/blog/classBlog.php',
+        url: 'https://ku.qingnian8.com/dataApi/blog/classBlog.php'
       }).then(res => {
         console.log(res, '1111')
         this.classArr = res.data

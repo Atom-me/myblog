@@ -72,18 +72,17 @@ export default {
       this.page--
       this.getData(this.page)
       this.pageScrollTop()
-
     },
     /**
      * 获取博客列表
      */
-    getData (page = 1) {//page形参，默认等于1
+    getData (page = 1) { // page形参，默认等于1
       axios({
         method: 'get',
         url: 'https://ku.qingnian8.com/dataApi/blog/showBlog.php',
         params: {
-          page: page,//页码
-          num: 10,//每页条数
+          page: page, // 页码
+          num: 10// 每页条数
         }
       }).then(res => {
         // console.log(res.data)
@@ -95,7 +94,7 @@ export default {
      * 加载完数据之后，页面滚动到顶部
      */
     pageScrollTop () {
-      //，做个判断，兼容不同浏览器
+      // ，做个判断，兼容不同浏览器
       if (document.body.scrollTop) {
         document.body.scrollTop = 0
       } else {

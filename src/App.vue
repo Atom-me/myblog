@@ -16,7 +16,7 @@ import FtView from '@/components/FtView'
 export default {
   components: {
     HdView,
-    FtView,
+    FtView
     // ShowBlog
   }
 }

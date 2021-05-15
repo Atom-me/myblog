@@ -15,7 +15,7 @@ const routes = [
   {
     path: '/',
     name: 'root',
-    redirect:'/show' //redirect 访问根目录直接跳转到/show路由
+    redirect: '/show' // redirect 访问根目录直接跳转到/show路由
   },
   {
     path: '/show',
