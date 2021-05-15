@@ -17,8 +17,8 @@
       </div>
     </div>
     <div class="page">
-      {{ page }}
       <div class="pre" v-on:click="prePage">上一页</div>
+      <p>第 {{ page }} 页</p>
       <div class="next" @click="nextPage">下一页</div>
     </div>
   </div>
@@ -41,18 +41,23 @@ export default {
 
   methods: {
     nextPage () {
+      if (this.blogArr.length < 10 || this.blogArr.length === 0) {
+        alert('后面没有更多了')
+        return
+      }
       this.page++
       this.getData(this.page)
+      this.pageScrollTop()
     },
 
     prePage () {
-      this.page--;
-      if (this.page < 1) {
-        alert('前面没有了');
-        this.page=1;
-        return;
+      if (this.page <= 1) {
+        alert('前面没有了')
+        return
       }
-      this.getData(this.page);
+      this.page--
+      this.getData(this.page)
+      this.pageScrollTop()
 
     },
     /**
@@ -64,14 +69,25 @@ export default {
         url: 'https://ku.qingnian8.com/dataApi/blog/showBlog.php',
         params: {
           page: page,//页码
-          num: 3,//每页条数
+          num: 10,//每页条数
         }
       }).then(res => {
         console.log(res.data)
         this.blogArr = res.data
       })
-    }
+    },
 
+    /**
+     * 加载完数据之后，页面滚动到顶部
+     */
+    pageScrollTop () {
+      //，做个判断，兼容不同浏览器
+      if (document.body.scrollTop) {
+        document.body.scrollTop = 0
+      } else {
+        document.documentElement.scrollTop = 0
+      }
+    }
   }
 }
 </script>
