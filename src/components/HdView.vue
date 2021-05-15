@@ -4,8 +4,8 @@
       <img src="@/assets/images/youtube_PNG102356-1.png" alt="">
     </div>
     <div class="link">
-      <a href="#">博客列表</a>
-      <a href="#">添加博客</a>
+      <router-link to="/show">博客列表</router-link>
+      <router-link to="/add">添加博客</router-link>
     </div>
   </div>
 </template>

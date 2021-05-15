@@ -1,7 +1,8 @@
 <template>
   <div id="app">
     <HdView></HdView>
-    <ShowBlog></ShowBlog>
+    <!--    <ShowBlog></ShowBlog>-->
+    <router-view></router-view>
     <FtView></FtView>
   </div>
 </template>
@@ -10,13 +11,13 @@
 
 import HdView from '@/components/HdView'
 import FtView from '@/components/FtView'
-import ShowBlog from '@/components/ShowBlog'
+// import ShowBlog from '@/components/ShowBlog'
 
 export default {
   components: {
     HdView,
     FtView,
-    ShowBlog
+    // ShowBlog
   }
 }
 
