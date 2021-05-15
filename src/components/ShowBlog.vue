@@ -6,7 +6,7 @@
       <div class="item" v-for="item in blogArr" :key="item.id">
         <div class="top">
           <div class="title">{{ item.title }}</div>
-          <div class="time">{{ item.posttime }}</div>
+          <div class="time">{{ modifyDateTimeFormat(item.posttime) }}</div>
         </div>
         <div class="center">
           {{ item.content }}
@@ -30,6 +30,9 @@
 
 <script>
 import axios from 'axios'
+import commons from '@/libs/commons'
+
+// console.log(commons,"5555")
 
 export default {
   // name: 'ShowBlog'
@@ -44,6 +47,13 @@ export default {
   },
 
   methods: {
+    /**
+     * 修改时间格式
+     */
+    modifyDateTimeFormat (val) {
+      return commons.myDate(val, 1)
+    },
+
     nextPage () {
       if (this.blogArr.length < 10 || this.blogArr.length === 0) {
         alert('后面没有更多了')
@@ -76,7 +86,7 @@ export default {
           num: 10,//每页条数
         }
       }).then(res => {
-        console.log(res.data)
+        // console.log(res.data)
         this.blogArr = res.data
       })
     },
