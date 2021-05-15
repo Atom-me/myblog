@@ -1,6 +1,7 @@
 <template>
   <div class="showblog">
 
+    <!--    blog list-->
     <div class="list">
       <div class="item" v-for="item in blogArr" :key="item.id">
         <div class="top">
@@ -16,11 +17,14 @@
         </div>
       </div>
     </div>
+
+    <!--    page-->
     <div class="page">
       <div class="pre" v-on:click="prePage">上一页</div>
       <p>第 {{ page }} 页</p>
       <div class="next" @click="nextPage">下一页</div>
     </div>
+
   </div>
 </template>
 
