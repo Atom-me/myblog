@@ -1,32 +1,38 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
+    <HdView></HdView>
+    <ShowBlog></ShowBlog>
+    <FtView></FtView>
   </div>
 </template>
 
-<style lang="less">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+<script>
+
+import HdView from '@/components/HdView'
+import FtView from '@/components/FtView'
+import ShowBlog from '@/components/ShowBlog'
+
+export default {
+  components: {
+    HdView,
+    FtView,
+    ShowBlog
+  }
 }
 
-#nav {
-  padding: 30px;
+</script>
 
-  a {
-    font-weight: bold;
-    color: #2c3e50;
+<style scoped>
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
 
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
+#app {
+  width: 1000px;
+  margin: 0 auto;
+  box-shadow: 0 0 10px rgba(65, 184, 131, 0.6);
+  border: 1px solid #41bb83;
 }
 </style>
